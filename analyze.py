@@ -8,8 +8,8 @@ features = [videointelligence.enums.Feature.LABEL_DETECTION]
 # operation = video_client.annotate_video(
 #     'gs://cloud-samples-data/video/cat.mp4', features=features)
 
-
-operation = video_client.annotate_video()
+operation = video_client.annotate_video(
+    'gs://cloud-samples-data/video/cat.mp4', features=features)
 
 
 

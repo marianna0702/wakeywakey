@@ -1,11 +1,17 @@
 import cv2
-cap = cv2.VideoCapture(0)
 
-while True:
-    ret, img=cap.read()
-    cv2.imshow('webcam', img)
-    k = cv2.waitKey(10)
-    if k==27:
-        break
-    cap.release()
-    cv2.destroyAllWindows()
+def get_cam():
+
+   cv2.namedWindow("preview")
+   vc = cv2.VideoCapture(0)
+
+   rval, frame = vc.read()
+
+   while True:
+      if frame is not None:
+         cv2.imshow("preview", frame)
+      rval, frame = vc.read()
+
+      if cv2.waitKey(1) & 0xFF == ord('q'):
+         break
+get_cam()
